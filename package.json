@@ -10,8 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@reduxjs/toolkit": "^2.0.1",
+    "@types/react-router-dom": "^5.3.3",
+    "antd": "^5.12.8",
+    "axios": "^1.6.5",
+    "chart.js": "^4.4.1",
+    "html-react-parser": "^5.0.11",
+    "millify": "^6.1.0",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
+    "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
