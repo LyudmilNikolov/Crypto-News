@@ -2,11 +2,12 @@ import { Card, Col, Row, Select, Typography } from 'antd';
 import moment from 'moment';
 import { useState } from 'react';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
+import Loader from './Loader';
 
 const { Text, Title } = Typography;
 const { Option } = Select;
 
-const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News';
+const demoImage = 'https://www.coindesk.com/resizer/FRBLNiNgZG31ZLE5XBmb4Tjzsys=/800x600/cloudfront-us-east-1.images.arcpublishing.com/coindesk/EKF6D5ATWVC3DFZTXU5VNC2VRA.png';
 
 const News = ({simplified}) => {
     const newsProvidersList = [
@@ -25,7 +26,8 @@ const News = ({simplified}) => {
         return provider ? provider.label : '';
     };
     
-    if (isFetching) return <div>Loading...</div>;
+    if (isFetching) return <Loader />;
+
     const newsToDisplay = simplified ? cryptoNews?.data.slice(0, 10) : cryptoNews?.data;
     return (
         <Row gutter={[ 24, 24 ]}>
@@ -37,13 +39,15 @@ const News = ({simplified}) => {
                         placeholder='Select a news provider'
                         optionFilterProp='children'
                         onChange={(value) => setNewsProvider(value)}
-                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                        filterOption={(input, option) => 
+                            option.children?.toString().toLowerCase().indexOf(input.toLowerCase()) >= 0
+                        }
                     >
                         {newsProvidersList.map((provider) => (
                             <Option key={provider.value} value={provider.value}>{provider.label}</Option>
                         ))}
-
                     </Select>
+
                 </Col>
             )}
             {newsToDisplay?.map((news, i) => (
@@ -64,7 +68,7 @@ const News = ({simplified}) => {
                                 <div>
                                     <Text className="provider-name">{getProviderLabel(newsProvider)}</Text>
                                 </div>
-                                <Text>{moment(news?.createdAt).startOf('ss').fromNow()}</Text>
+                                <Text>{moment(news?.createdAt).fromNow()}</Text>
                             </div>
                         </a>
                     </Card>

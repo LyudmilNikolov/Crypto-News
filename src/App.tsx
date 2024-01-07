@@ -2,7 +2,7 @@
 import { Layout, Space, Typography } from 'antd';
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { CryptoDetails, Cryptocurrencies, Exchanges, HomePage, Navbar, News } from './components';
+import { CryptoDetails, Cryptocurrencies, HomePage, Navbar, News } from './components';
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
             <div className='routes'>
               <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/exchanges' element={<Exchanges />} />
                 <Route path='/cryptocurrencies' element={<Cryptocurrencies />} />
                 <Route path='/crypto/:coinId' element={<CryptoDetails />} />
                 <Route path='/news' element={<News />} />
@@ -29,7 +28,6 @@ function App() {
           </Typography.Title>
           <Space>
             <Link to='/'>Home</Link>
-            <Link to='/exchanges'>Exchanges</Link>
             <Link to='/news'>News</Link>
           </Space>
         </div>
