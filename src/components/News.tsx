@@ -9,7 +9,11 @@ const { Option } = Select;
 
 const demoImage = 'https://www.coindesk.com/resizer/FRBLNiNgZG31ZLE5XBmb4Tjzsys=/800x600/cloudfront-us-east-1.images.arcpublishing.com/coindesk/EKF6D5ATWVC3DFZTXU5VNC2VRA.png';
 
-const News = ({simplified}) => {
+interface NewsProps {
+    simplified?: boolean;
+}  
+
+const News: React.FC<NewsProps> = ({ simplified = false }) => {
     const newsProvidersList = [
         { value: 'coindesk', label: 'Coindesk' },
         { value: 'cointelegraph', label: 'Cointelegraph' },
