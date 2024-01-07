@@ -4,8 +4,8 @@ import { CoinDetails, Coins } from '../models/coin';
 import { History } from '../models/history';
 
 const cryptoApiHeaders = {
-  'X-RapidAPI-Host': import.meta.env.VITE_CRYPTO_RAPIDAPI_HOST  || '',
-  'X-RapidAPI-Key': import.meta.env.VITE_APP_RAPIDAPI_KEY  || '',
+  'X-RapidAPI-Host': import.meta.env.VITE_CRYPTO_RAPIDAPI_HOST || '',
+  'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY || '',
 }
 
 const createRequest = (url: string) => ({ url, headers: cryptoApiHeaders });
