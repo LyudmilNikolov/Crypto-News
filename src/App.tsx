@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Layout, Space, Typography } from 'antd';
-import { Link, Route, Routes } from 'react-router-dom';
+import { HashRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { CryptoDetails, Cryptocurrencies, HomePage, Navbar, News } from './components';
 
@@ -13,12 +12,14 @@ function App() {
       <div className='main'>
         <Layout>
             <div className='routes'>
-              <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/cryptocurrencies' element={<Cryptocurrencies />} />
-                <Route path='/crypto/:coinId' element={<CryptoDetails />} />
-                <Route path='/news' element={<News />} />
-              </Routes>
+              <HashRouter>
+                <Routes>
+                  <Route path='/' element={<HomePage />} />
+                  <Route path='/cryptocurrencies' element={<Cryptocurrencies />} />
+                  <Route path='/crypto/:coinId' element={<CryptoDetails />} />
+                  <Route path='/news' element={<News />} />
+                </Routes>
+              </HashRouter>
             </div>
         </Layout>
         <div className='footer'>
